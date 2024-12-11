@@ -1,4 +1,5 @@
 package com.example.frist_spring_app.entity;
+import java.time.Instant;
 import java.util.UUID;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +12,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_users")
 
-public class User {
+public class User{
     
     @Id 
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -25,6 +26,12 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    public User(UUID randomUUID,String email2, String passoword, String username2, Instant now, Object object) {
+        this.email = email2;
+        this.password = passoword;
+        this.username = username2;
+    }
 
     // Getters e Setters (facultativo, mas recomendado)
     public UUID getUserID() {
